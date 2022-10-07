@@ -14,6 +14,7 @@ function App() {
 
   return (
     <div className="content">
+      <h1>Pick a number</h1>
       <ButtonWrapper>
         {fiboNums(10).map((num) => (
           <MyButton
