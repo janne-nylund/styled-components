@@ -1,13 +1,17 @@
 import styled from "styled-components";
 
-interface StyleProps {
-  text: string;
+interface ButtonProps {
+  text: number;
   clickFn?: () => void;
   loading?: boolean;
 }
 
-const StyledButton = styled.button`
-  background-color: ${(props) => (props.loading ? "#e2e2e2" : "#1877f2")};
+interface IBtn {
+  $loading?: boolean;
+}
+
+const StyledButton = styled.button<IBtn>`
+  background-color: ${(props) => (props.$loading ? "#e2e2e2" : "#1877f2")};
   border: none;
   border-radius: 6px;
   color: #fff;
@@ -31,10 +35,11 @@ const StyledButton = styled.button`
   }
 `;
 
-export const MyButton = ({ text, clickFn, loading }: StyleProps) => {
+export const MyButton = ({ text, clickFn, loading = false }: ButtonProps) => {
   return (
-    <StyledButton onClick={clickFn ? clickFn : null} loading={loading}>
-      {loading ? "Loading..." : text}
+    // $ transient prop, NOT passed to the DOM, only the Styled Component
+    <StyledButton $loading={loading}>
+      <div onClick={clickFn}>{loading ? "Loading..." : text}</div>
     </StyledButton>
   );
 };

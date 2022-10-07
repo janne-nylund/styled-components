@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { ButtonWrapper } from "./ButtonWrapper";
+import { MyButton } from "./MyButton";
 
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -24,8 +26,17 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>Vite + React</h1>
+    <div className="content">
+      <ButtonWrapper>
+        {fiboNums(10).map((num) => (
+          <MyButton
+            key={Math.random()}
+            text={num}
+            clickFn={() => alert(`You chose: ${num}`)}
+            loading={isLoading}
+          />
+        ))}
+      </ButtonWrapper>
     </div>
   );
 }

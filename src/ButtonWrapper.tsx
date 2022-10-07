@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-interface StyleProps {
-  children: React.ReactNode;
+interface WrapperProps {
+  children: React.ReactNode | React.ReactNode[];
 }
 
 const StyledWrapper = styled.div`
@@ -19,6 +19,6 @@ const StyledWrapper = styled.div`
     0 1px 16px rgba(0, 0, 0, 0.04);
 `;
 
-export const ButtonWrapper = ({ children }: StyleProps) => {
+export const ButtonWrapper = ({ children }: WrapperProps) => {
   return <StyledWrapper>{children}</StyledWrapper>;
 };
