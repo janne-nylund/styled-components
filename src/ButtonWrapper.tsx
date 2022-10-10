@@ -19,6 +19,6 @@ const StyledWrapper = styled.div`
     0 1px 16px rgba(0, 0, 0, 0.04);
 `;
 
-export const ButtonWrapper = ({ children }: WrapperProps) => {
+export const ButtonWrapper: React.FC<WrapperProps> = ({ children }) => {
   return <StyledWrapper>{children}</StyledWrapper>;
 };

@@ -37,11 +37,11 @@ const StyledButton = styled.button<StyledProps>`
   }
 `;
 
-export const MyButton = ({
+export const MyButton: React.FC<ButtonProps> = ({
   text = "Click me",
   clickFn,
   loading = false,
-}: ButtonProps) => {
+}) => {
   return (
     // $ transient prop, not added to the rendered DOM element, only passed to the Styled Component
     // used here to prevent the reserved attribute 'loading' to be set on the DOM element <StyledButton>
