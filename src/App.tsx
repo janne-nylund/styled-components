@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { ButtonWrapper } from "./ButtonWrapper";
 import { MyButton } from "./MyButton";
 import { fiboNums } from "./helperFns/fiboNums";
+import { Greeting } from "./Greeting";
 
-function App() {
+const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -14,6 +15,8 @@ function App() {
 
   return (
     <div className="content">
+      <Greeting />
+      <Greeting name="John" />
       <h1>Pick a number</h1>
       <ButtonWrapper>
         {fiboNums(10).map((num) => (
@@ -27,6 +30,6 @@ function App() {
       </ButtonWrapper>
     </div>
   );
-}
+};
 
 export default App;

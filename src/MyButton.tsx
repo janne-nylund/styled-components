@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import BarLoader from "react-spinners/BarLoader";
 
 interface StyledProps {
   $loading?: boolean;
@@ -14,7 +15,7 @@ const StyledButton = styled.button<StyledProps>`
   background-color: ${(props) => (props.$loading ? "#e2e2e2" : "#1771e7")};
   border: 1px solid ${(props) => (props.$loading ? "#d6d6d6" : "#1877f2")};
   border-radius: 6px;
-  color: ${(props) => (props.$loading ? "#b1b1b1" : "#aac7ee")};
+  color: #aac7ee;
   flex-grow: 1;
   font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
   font-size: 15px;
@@ -46,7 +47,8 @@ export const MyButton: React.FC<ButtonProps> = ({
     // $ transient prop, not added to the rendered DOM element, only passed to the Styled Component
     // used here to prevent the reserved attribute 'loading' to be set on the DOM element <StyledButton>
     <StyledButton $loading={loading}>
-      <div onClick={clickFn}>{loading ? "Loading..." : text}</div>
+      {!!loading && <BarLoader width={60} color="#1772e9" />}
+      {!loading && <div onClick={clickFn}>{text}</div>}
     </StyledButton>
   );
 };
