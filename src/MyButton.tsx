@@ -14,8 +14,8 @@ interface ButtonProps {
 const StyledButton = styled.button<StyledProps>`
   background-color: ${(props) => (props.$loading ? "#e2e2e2" : "#1771e7")};
   border: 1px solid ${(props) => (props.$loading ? "#d6d6d6" : "#1877f2")};
-  border-radius: 6px;
-  color: #aac7ee;
+  border-radius: 8px;
+  color: #fff;
   flex-grow: 1;
   font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
   font-size: 15px;
@@ -29,9 +29,9 @@ const StyledButton = styled.button<StyledProps>`
 
   // when hovered
   &:hover {
-    background-color: #1772e9;
+    background-color: #1459b4;
     border: 1px solid #165ebd;
-    color: #fff;
+    color: #d3e1f3;
     font-size: 15px;
     font-weight: bold;
     transition: 0.2s;

@@ -3,6 +3,8 @@ import { ButtonWrapper } from "./ButtonWrapper";
 import { MyButton } from "./MyButton";
 import { fiboNums } from "./helperFns/fiboNums";
 import { Greeting } from "./Greeting";
+import { InputWrapper } from "./InputWrapper";
+import { MyInput } from "./StyledInput";
 
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -19,7 +21,7 @@ const App: React.FC = () => {
       <Greeting name="John" />
       <h1>Pick a number</h1>
       <ButtonWrapper>
-        {fiboNums(10).map((num) => (
+        {fiboNums(5).map((num) => (
           <MyButton
             key={num + Math.random()}
             text={num.toString()}
@@ -28,6 +30,12 @@ const App: React.FC = () => {
           />
         ))}
       </ButtonWrapper>
+      <InputWrapper>
+        <MyInput type="text" label="Enter first name" placeholder="Name" />
+      </InputWrapper>
+      <InputWrapper>
+        <MyInput type="email" label="Enter email address" placeholder="Email" />
+      </InputWrapper>
     </div>
   );
 };
